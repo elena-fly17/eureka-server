@@ -4,7 +4,20 @@ spring:
 server:
   port: 8761
 eureka:
+  instance:
+    hostname: localhost
+    lease-expiration-duration-in-seconds: 70
   client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
     register-with-eureka: false
     fetch-registry: false
+    eureka-server-connect-timeout-seconds: 60
+    eureka-service-url-poll-interval-seconds: 15
+    use-dns-for-fetching-service-urls: false
+    prefer-same-zone-eureka: true
+    healthcheck:
+      enabled: true
+  server:
+    expected-client-renewal-interval-seconds: 20
 
