@@ -20,4 +20,3 @@ eureka:
       enabled: true
   server:
     expected-client-renewal-interval-seconds: 20
-
